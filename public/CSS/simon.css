@@ -4,15 +4,19 @@
 	width:150px;
 	height:150px;	
 	font-weight: bold;
-	font-size: 60px;
+	font-size: 30px;
 	color: #FFFFFF; 
 	float: left;
+	font-family:'Open Sans Condensed';
+	text-align: center;
 }
 #title{
 	font-family:'Open Sans Condensed';
 	margin-left: 87px;
 }
-
+.lightUp{
+	opacity: .5;
+}
 
 #box-red {
 	background-color: #CC393B;
@@ -47,4 +51,15 @@
 }
 #box-blue:active{
 	background-color: #628FAD;
+}
+
+
+
+#start{
+	margin-left:109px; 
+	float: left;
+	clear:left;
+	width: 70px;
+	height: 40px;
+	
 }

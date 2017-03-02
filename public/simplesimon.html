@@ -1,16 +1,76 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Simple Simon</title>
-    <link rel="stylesheet" href="CSS/simon.css">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
-</head>
-<body>
-    <h1 id="title"> Simple Simon</h1>
-    <div id="box-red" class="box"> </div>
-    <div id="box-yellow" class="box"> </div>
-    <div id="box-green" class="box"> </div>
-    <div id="box-blue" class="box"> </div>
-    
-</body>
+	<head>
+	    <title>Simple Simon</title>
+	    <link rel="stylesheet" href="CSS/simon.css">
+	    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
+	</head>
+	<body>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	    <h1 id="title">Simple Simon</h1>
+	    <div id="box-red" class="box">1</div>
+	    <div id="box-yellow" class="box">2</div>
+	    <div id="box-green" class="box">3</div>
+	    <div id="box-blue" class="box">4</div>
+	    <button id="start"> Start</button>
+	<script>
+	(function() {
+    "use strict";
+
+    $("#start").click(function(){
+
+ 	var num = (Math.floor(Math.random()* 4)+1);
+ 	var sequenceArray = [];
+ 	sequenceArray.push(num)
+ 	// console.log(num);
+
+	for(var i = 0; i < sequenceArray.length; i++){
+	 	if(sequenceArray[i] == 1){
+	 		$("#box-red").animate({
+	 			opacity: .5
+	 		}, 1000, function(){
+	 			$("#box-red").animate({opacity: 1}, 1000);
+	 		})
+	 	}else if(sequenceArray[i] == 2){
+	 		$("#box-yellow").animate({
+	 			opacity: .5
+	 		}, 1000, function(){
+	 			$("#box-yellow").animate({opacity: 1}, 1000);
+	 		})
+	 	}else if(sequenceArray[i] == 3){
+	 		$("#box-green").animate({
+	 			opacity: .5
+	 		}, 1000, function(){
+	 			$("#box-green").animate({opacity: 1}, 1000);
+	 		})
+	 	}else if(sequenceArray[i] == 4){
+	 		$("#box-blue").animate({
+	 			opacity: .5
+	 		}, 1000, function(){
+	 			$("#box-blue").animate({opacity: 1}, 1000);
+	 		})
+	 	}
+	}
+	$(".box").on("click", function(){
+		console.log($(this).html())
+		var buttonClicked = $(this).html();
+		if(buttonClicked == sequenceArray[0]){
+		console.log("right");
+		$(".box").off("click");
+	}else{
+		console.log("you are wrong");
+		$(".box").off("click");
+	}
+
+})
+
+
+});
+
+
+
+    })();
+	</script>
+	    
+	</body>
 </html>
