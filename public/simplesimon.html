@@ -14,62 +14,75 @@
 	    <div id="box-blue" class="box">4</div>
 	    <button id="start"> Start</button>
 	<script>
-	(function() {
+	// (function() {
     "use strict";
+	var sequenceArray = [];
 
-    $("#start").click(function(){
+ 	function addToSequence(){
+ 		var num = (Math.floor(Math.random()* 4)+1);
+ 		sequenceArray.push(num);
+ 	}
 
- 	var num = (Math.floor(Math.random()* 4)+1);
- 	var sequenceArray = [];
- 	sequenceArray.push(num)
- 	// console.log(num);
 
-	for(var i = 0; i < sequenceArray.length; i++){
-	 	if(sequenceArray[i] == 1){
-	 		$("#box-red").animate({
-	 			opacity: .5
-	 		}, 1000, function(){
-	 			$("#box-red").animate({opacity: 1}, 1000);
-	 		})
-	 	}else if(sequenceArray[i] == 2){
-	 		$("#box-yellow").animate({
-	 			opacity: .5
-	 		}, 1000, function(){
-	 			$("#box-yellow").animate({opacity: 1}, 1000);
-	 		})
-	 	}else if(sequenceArray[i] == 3){
-	 		$("#box-green").animate({
-	 			opacity: .5
-	 		}, 1000, function(){
-	 			$("#box-green").animate({opacity: 1}, 1000);
-	 		})
-	 	}else if(sequenceArray[i] == 4){
-	 		$("#box-blue").animate({
-	 			opacity: .5
-	 		}, 1000, function(){
-	 			$("#box-blue").animate({opacity: 1}, 1000);
-	 		})
-	 	}
+ 	function animateGame(){
+ 		for(var i = 0; i < sequenceArray.length; i++){
+		 	if(sequenceArray[i] == 1){
+		 		$("#box-red").animate({
+		 			opacity: .5
+		 		}, 1000, function(){
+		 			$("#box-red").animate({opacity: 1}, 1000);
+		 		})
+		 	}else if(sequenceArray[i] == 2){
+		 		$("#box-yellow").animate({
+		 			opacity: .5
+		 		}, 1000, function(){
+		 			$("#box-yellow").animate({opacity: 1}, 1000);
+		 		})
+		 	}else if(sequenceArray[i] == 3){
+		 		$("#box-green").animate({
+		 			opacity: .5
+		 		}, 1000, function(){
+		 			$("#box-green").animate({opacity: 1}, 1000);
+		 		})
+		 	}else if(sequenceArray[i] == 4){
+		 		$("#box-blue").animate({
+		 			opacity: .5
+		 		}, 1000, function(){
+		 			$("#box-blue").animate({opacity: 1}, 1000);
+		 		})
+		 	}
+		}
+	
+ 	}
+
+ 	function checkUser(){
+		$(".box").on("click", function(){
+			console.log($(this).html())
+			var buttonClicked = $(this).html();
+			if(buttonClicked == sequenceArray[0]){
+				console.log("right");
+				$(".box").off("click");
+			}else{
+				console.log("you are wrong");
+				$(".box").off("click");
+			}
+
+		})
 	}
-	$(".box").on("click", function(){
-		console.log($(this).html())
-		var buttonClicked = $(this).html();
-		if(buttonClicked == sequenceArray[0]){
-		console.log("right");
-		$(".box").off("click");
-	}else{
-		console.log("you are wrong");
-		$(".box").off("click");
+
+
+	function start(){
+	    $("#start").click(function(){
+	    	addToSequence();
+	    	animateGame();
+	    	checkUser();
+		});
 	}
-
-})
-
-
-});
+	
+	start();
 
 
-
-    })();
+    // })();
 	</script>
 	    
 	</body>
