@@ -8,6 +8,8 @@
 	<body>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	    <h1 id="title">Simple Simon</h1>
+	    <h1 id="over"></h1>
+	    <h2 id="subtitle">Click start to play!</h2>
 	    <div id="box-red" class="box">1</div>
 	    <div id="box-yellow" class="box">2</div>
 	    <div id="box-green" class="box">3</div>
@@ -17,12 +19,15 @@
 	// (function() {
     "use strict";
 	var sequenceArray = [];
+	var counter = 0;
+	var userArray = [];
 
- 	function addToSequence(){
+
+ 	function addToSequence( ){
  		var num = (Math.floor(Math.random()* 4)+1);
  		sequenceArray.push(num);
+ 		console.log(sequenceArray);
  	}
-
 
  	function animateGame(){
  		for(var i = 0; i < sequenceArray.length; i++){
@@ -52,33 +57,67 @@
 		 		})
 		 	}
 		}
-	
  	}
 
- 	function checkUser(){
-		$(".box").on("click", function(){
-			console.log($(this).html())
-			var buttonClicked = $(this).html();
-			if(buttonClicked == sequenceArray[0]){
-				console.log("right");
-				$(".box").off("click");
+ 	function checkUser(button){
+		// $(".box").on("click", function(){
+			// console.log($(button).html())
+			var buttonClicked = $(button).html();
+			if(userArray[counter] == sequenceArray[counter]){
+				
+	    		animateGame();
+	    		counter++;
+				// $(".box").off("click");
 			}else{
 				console.log("you are wrong");
-				$(".box").off("click");
+				gameOver();
+				// $(".box").off("click");
 			}
+			// if(check if sequence is complete and matches){
+			// 	addToSequence();
+			// }else{
+				
+			// }
+			
+				
 
-		})
+		// })
 	}
 
-
+	function playerMove(){
+		$('.box').click(function() {
+			checkUser($(this));
+	        userArray.push($(this).text());
+	        console.log(userArray);
+	    }); 
+	}
+ 
 	function start(){
 	    $("#start").click(function(){
+	    	sequenceArray = [];
+	    	userArray = [];
+	    	counter = 0;
 	    	addToSequence();
 	    	animateGame();
-	    	checkUser();
+	    	playerMove();
+	    	var rounds = document.getElementById('subtitle');
+            rounds.innerHTML = "Round: #";
+            var loser = document.getElementById('over');
+           	loser.innerHTML = "";
+	    	
 		});
 	}
 	
+	function gameOver(){
+		sequenceArray = [];
+	    userArray = [];
+	    counter = 0;
+	    console.log("Game Over");
+	    var playAgain = document.getElementById('subtitle');
+            playAgain.innerHTML = "Click Start to play Again!";
+        var loser = document.getElementById('over');
+           loser.innerHTML = "GAME OVER";
+	}
 	start();
 
 
