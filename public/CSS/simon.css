@@ -10,13 +10,26 @@
 	font-family:'Open Sans Condensed';
 	text-align: center;
 }
+
+#gamebox{
+	width: 315px;
+	height: 550px
+}
+
 #title{
 	font-family:'Open Sans Condensed';
-	margin-left: 87px;
+	margin-left: 91px;
 }
+
+#over{
+	font-family:'Open Sans Condensed';
+}
+
+
 .lightUp{
 	opacity: .5;
 }
+
 
 #box-red {
 	background-color: #CC393B;
@@ -54,6 +67,10 @@
 }
 
 
+#subtitle{
+	font-family: 'Open Sans Condensed';
+	margin-left: 90px;
+}
 
 #start{
 	margin-left:119px; 
