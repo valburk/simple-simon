@@ -1,28 +1,51 @@
+body{
+	background-color: gray;
+}
+
+
 .box {
 	border-left:8px solid white;
 	border-bottom: 8px solid white;
 	width:150px;
 	height:150px;	
 	font-weight: bold;
-	font-size: 30px;
+	font-size: 0px;
 	color: #FFFFFF; 
 	float: left;
 	font-family:'Open Sans Condensed';
 	text-align: center;
+/*	background-image: url("img/cat.png")*/
+	
 }
 
 #gamebox{
-	width: 315px;
-	height: 550px
+	border: 1px solid black;
+	margin:auto;
+	position:absolute;
+
+}
+
+.container{
+
+	background-color: white;
+	border: 0px solid black;
+	width: 340px;
+	height: 530px;
+	position: relative;
+	margin: auto;
+	margin-top: 40px;
 }
 
 #title{
-	font-family:'Open Sans Condensed';
-	margin-left: 91px;
+	font-family: 'Orbitron';
+	text-align: center;
+	font-weight: bold;
+	/*margin-left: 91px;*/
 }
 
 #over{
-	font-family:'Open Sans Condensed';
+	font-family:'Orbitron';
+	text-align: center;
 }
 
 
@@ -32,6 +55,7 @@
 
 
 #box-red {
+	border-top-left-radius: 30px;
 	background-color: #CC393B;
 }
 #box-red:active{
@@ -41,6 +65,7 @@
 
 
 #box-yellow {
+	border-top-right-radius: 30px;
 	background-color: #E6C229;		
 }
 #box-yellow:active{
@@ -50,6 +75,7 @@
 
 
 #box-green {
+	border-bottom-left-radius: 30px;
 	background-color: green;
 	clear:left;
 }
@@ -60,7 +86,9 @@
 
 
 #box-blue {
-	background-color: #2176AE;	
+	background-color: #2176AE;
+	border-bottom-right-radius: 30px;
+	
 }
 #box-blue:active{
 	background-color: #628FAD;
@@ -69,12 +97,12 @@
 
 #subtitle{
 	font-family: 'Open Sans Condensed';
-	margin-left: 90px;
+	text-align: center;
+/*	margin-left: 90px;*/
 }
 
 #start{
-	margin-left:119px; 
-	float: left;
+	
 	clear:left;
 	width: 80px;
 	height: 50px;
@@ -84,6 +112,8 @@
 	font-family: 'Open Sans Condensed';
 	font-weight: bold;
 	font-size:24px;
+	margin: auto;
+	position: relative;
 	
 }
 #start:hover{
