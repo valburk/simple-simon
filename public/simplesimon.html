@@ -28,7 +28,6 @@
  	function addToSequence(){
  		var num = (Math.floor(Math.random()* 4)+1);
  		sequenceArray.push(num);
- 		console.log(sequenceArray);
  		userArray = [];
  	}
 
@@ -40,10 +39,12 @@
 	        }
 	        animate(i);
 		 	i++;
-	    }, 1100);
+	    }, 800);
 	}
 
  	function animate(i){
+ 		var rounds = document.getElementById('subtitle');
+            rounds.innerHTML = "Round " + (parseInt(sequenceArray.length));
 	 	if(sequenceArray[i] == 1){
 	 		$("#box-red").animate({
 	 			opacity: .5
@@ -69,51 +70,26 @@
 	 			$("#box-blue").animate({opacity: 1}, 500);
 	 		})
 	 	}
-	
  	}
 
- 	function checkUser(button){
-			// var buttonClicked = $(button).html();
-			//If player clicks the wrong square
-
-			console.log("counter is " + counter);
-			console.log("user array " + userArray[counter]);
-			console.log("simon " + sequenceArray[counter]);
-			
-			if(userArray[counter] == sequenceArray[counter]) {
-
-				if(counter == sequenceArray.length -1 ){
-					counter = 0;
-					addToSequence();
-					animateGame();
-				} else {
-					counter++;
-				}
-
-			} else {
-				console.log("you are wrong");
-				gameOver();	
+ 	function checkUser(button){	
+		if(userArray[counter] == sequenceArray[counter]) {
+			if(counter == sequenceArray.length -1 ){
+				counter = 0;
+				addToSequence();
+				animateGame();
+			}else{
+				counter++;
 			}
-
-
-			// if(userArray[counter] != sequenceArray[counter]){
-			// 	console.log("you are wrong");
-			// 	gameOver();	
-			// }else if (userArray == sequenceArray[counter] && counter == (sequenceArray.length -1)){
-			// 	addToSequence();
-			// 	animateGame();
-			// }else{
-	  //   		counter++;
-			// }
-	
+		}else{
+			gameOver();	
+		}
 	}
 
 	function playerMove(){
 		$('.box').click(function(){
 			userArray.push($(this).text());
 			checkUser($(this));
-	        
-	        
 	    }); 
 	}
  
@@ -125,8 +101,6 @@
 	    	addToSequence();
 	    	animateGame();
 	    	playerMove();
-	    	var rounds = document.getElementById('subtitle');
-            rounds.innerHTML = "Round " + (parseInt(counter) + 1);
             var loser = document.getElementById('over');
            	loser.innerHTML = "";
 	    	
@@ -137,7 +111,8 @@
 		sequenceArray = [];
 	    userArray = [];
 	    counter = 0;
-	    console.log("Game Over");
+	    	var rounds = document.getElementById('subtitle');
+            rounds.innerHTML = " ";
 	    var playAgain = document.getElementById('subtitle');
             playAgain.innerHTML = "Click Start to play Again!";
         var loser = document.getElementById('over');
