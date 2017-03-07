@@ -13,16 +13,7 @@ body{
 	color: #FFFFFF; 
 	float: left;
 	font-family:'Open Sans Condensed';
-	text-align: center;
-
-	
-}
-
-#gamebox{
-	border: 1px solid black;
-	margin:auto;
-	position:absolute;
-
+	text-align: center;	
 }
 
 .container{
@@ -36,26 +27,29 @@ body{
 	margin-top: 40px;
 	border-radius: 20px;
 }
-#cat{
-	padding-top:30px;
+
+#gamebox{
+	border: 1px solid black;
+	margin:auto;
+	position:absolute;
 }
+
 #title{
 	font-family:'Shadows Into Light';
 	text-align: center;
 	font-size: 55px;
 	color: #422D32;
-	/*margin-left: 91px;*/
+}
+#subtitle{
+	color: #454745;
+	font-family: 'Shadows Into Light';
+	text-align: center;
 }
 
 #over{
 	font-family:'Orbitron';
 	text-align: center;
 	color: #4D4647;
-}
-
-
-.lightUp{
-	opacity: .5;
 }
 
 
@@ -92,23 +86,15 @@ body{
 
 #box-blue {
 	background-color: #7EB2DD;
-	border-bottom-right-radius: 30px;
-	
+	border-bottom-right-radius: 30px;	
 }
 #box-blue:active{
 	background-color: #628FAD;
 }
 
 
-#subtitle{
-	color: #454745;
-	font-family: 'Shadows Into Light';
-	text-align: center;
-
-}
 
 #start{
-	
 	clear:left;
 	width: 80px;
 	height: 50px;

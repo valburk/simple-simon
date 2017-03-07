@@ -9,10 +9,10 @@
 	</head>
 	<body>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	
 	    <div class="container">
 	    <div id="gameBox" class= "text-center">
 	    <h1 id="title">Simple Simoné</h1>
-	    
 	    <h2 id="subtitle">Click start to play!</h2>
 	    <div id="box-red" class="box">1</div>
 	    <div id="box-yellow" class="box">2</div>
@@ -22,106 +22,6 @@
 	    <button id="start"> Start</button> 
 	    </div>
 	    </div>
-	<script>
-	// (function() {
-    "use strict";
-	var sequenceArray = [];
-	var counter = 1;
-	var userArray = [];
-
-
- 	function addToSequence(){
- 		var num = (Math.floor(Math.random()* 4)+1);
- 		sequenceArray.push(num);
- 		userArray = [];
-		 $("#subtitle").html("Round " + (parseInt(sequenceArray.length)));
- 	}
-
- 	function animateGame(){
-	    var i = 0;
-	    var intervalId = setInterval(function() {
-			if(i >= sequenceArray.length) {
-				clearInterval(intervalId);
-	        }
-	        animate(i);
-		 	i++;
-	    }, 800);
-	}
-
- 	function animate(i){
- 	
-	 	if(sequenceArray[i] == 1){
-	 		$("#box-red").animate({
-	 			opacity: .3
-	 		}, 400, function(){
-	 			$("#box-red").animate({opacity: 1}, 400);
-	 		})
-	 	}else if(sequenceArray[i] == 2){
-	 		$("#box-yellow").animate({
-	 			opacity: .3
-	 		}, 400, function(){
-	 			$("#box-yellow").animate({opacity: 1}, 400);
-	 		})
-	 	}else if(sequenceArray[i] == 3){
-	 		$("#box-green").animate({
-	 			opacity: .3
-	 		}, 400, function(){
-	 			$("#box-green").animate({opacity: 1}, 400);
-	 		})
-	 	}else if(sequenceArray[i] == 4){
-	 		$("#box-blue").animate({
-	 			opacity: .3
-	 		}, 400, function(){
-	 			$("#box-blue").animate({opacity: 1}, 400);
-	 		})
-	 	}
- 	}
-
- 	function checkUser(button){	
-		if(userArray[counter] == sequenceArray[counter]) {
-			if(counter == sequenceArray.length -1 ){
-				counter = 0;
-				addToSequence();
-				animateGame();
-			}else{
-				counter++;
-			}
-		}else{
-			gameOver();	
-		}
-	}
-
-	function playerMove(){
-		$('.box').click(function(){
-			userArray.push($(this).text());
-			checkUser($(this));
-	    }); 
-	}
- 
-	function start(){
-	    $("#start").click(function(){
-	    	sequenceArray = [];
-	    	userArray = [];
-	    	counter = 0;
-	    	addToSequence();
-	    	animateGame();
-	    	playerMove();
-            $("#over").html("");
-	    	
-		});
-	}
-	
-	function gameOver(){
-		sequenceArray = [];
-	    userArray = [];
-	    counter = 0;
-	    $("#subtitle").html("Click Start to play Again!");
-       	$("#over").html("GAME OVER");
-	}
-	start();
-
-    // })();
-	</script>
-	    
+	<script src="js/simone.js"></script>
 	</body>
 </html>
