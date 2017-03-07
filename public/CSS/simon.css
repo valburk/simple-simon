@@ -4,8 +4,8 @@ body{
 
 
 .box {
-	border-left:8px solid #EFE8E1;
-	border-bottom: 8px solid #EFE8E1;
+	border-left:8px solid #CCBBB9;
+	border-bottom: 8px solid #CCBBB9;
 	width:150px;
 	height:150px;	
 	font-weight: bold;
@@ -27,7 +27,7 @@ body{
 
 .container{
 
-	background-color: #EFE8E1;
+	background-color: #CCBBB9;
 	border: 0px solid black;
 	width: 340px;
 	height: 560px;
@@ -50,6 +50,7 @@ body{
 #over{
 	font-family:'Orbitron';
 	text-align: center;
+	color: #4D4647;
 }
 
 
@@ -101,7 +102,7 @@ body{
 
 #subtitle{
 	color: #454745;
-	font-family: 'Open Sans Condensed';
+	font-family: 'Shadows Into Light';
 	text-align: center;
 
 }
@@ -111,15 +112,16 @@ body{
 	clear:left;
 	width: 80px;
 	height: 50px;
-	background-color: #BCBCBC;
+	background-color: #EEE3DF;
 	border:0px;
 	border-radius: 30px;
 	font-family:'Shadows Into Light';
 	font-size:29px;
 	margin: auto;
 	position: relative;
+	color:#4D4647;
 	
 }
 #start:hover{
-	background-color: #7C7C7C;
+	background-color: #B1A6A6;
 }
